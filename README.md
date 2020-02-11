@@ -13,8 +13,8 @@
 - check_token() = Token驗證(得配合session使用)
 - get_user_ip() = 取得使用者ip
 - random_string() = 亂數產生
-- pre_p = html <pre> + php print_r() + html <hr>
-- pre_v = html <pre> + php var_dump() + html <hr>
+- pre_p = html pre + php print_r() + html hr
+- pre_v = html pre + php var_dump() + html hr
 - check_date = 日期檢查
 - check_phone = 台灣手機號碼檢查
 - check_identity = 台灣身分證檢查
