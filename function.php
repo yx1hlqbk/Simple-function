@@ -9,7 +9,8 @@
  * @version 1.0
  **/
 if (!function_exists('js_locked_right_click')) {
-    function js_locked_right_click() {
+    function js_locked_right_click()
+    {
         echo '
         <script>
             document.oncontextmenu = function() {
@@ -30,7 +31,8 @@ if (!function_exists('js_locked_right_click')) {
  * @version 1.0
  **/
 if (!function_exists('js_alert')) {
-    function js_alert($message = '', $url = '') {
+    function js_alert($message = '', $url = '')
+    {
         echo '
         <script>
             document.onkeydown = function() {
@@ -41,8 +43,8 @@ if (!function_exists('js_alert')) {
                     return false;
                 }
             }
-            alert("'.$message.'");
-            location.href = "'.$url.'";
+            alert("' . $message . '");
+            location.href = "' . $url . '";
         </script>';
         exit();
     }
@@ -59,7 +61,8 @@ if (!function_exists('js_alert')) {
  * @version 1.0
  **/
 if (!function_exists('data_encode')) {
-    function data_encode($data, $key) {
+    function data_encode($data, $key)
+    {
         $method = 'aes-256-cbc';
         if (in_array($method, openssl_get_cipher_methods())) {
             if (empty($data) || is_null($data) || is_array($data)) {
@@ -68,7 +71,7 @@ if (!function_exists('data_encode')) {
                 $encryption_key = base64_decode($key);
                 $iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($method));
                 $encrypted = openssl_encrypt($data, $method, $encryption_key, 0, $iv);
-                return base64_encode($encrypted.'::'.$iv);
+                return base64_encode($encrypted . '::' . $iv);
             }
         } else {
             die('不支持該加密算法!');
@@ -87,7 +90,8 @@ if (!function_exists('data_encode')) {
  * @version 1.0
  **/
 if (!function_exists('data_decode')) {
-    function data_decode($data, $key) {
+    function data_decode($data, $key)
+    {
         $method = 'aes-256-cbc';
         if (in_array($method, openssl_get_cipher_methods())) {
             if (empty($data) || is_null($data) || is_array($data)) {
@@ -116,12 +120,13 @@ if (!function_exists('data_decode')) {
  * @version 1.0
  **/
 if (!function_exists('get_token')) {
-    function get_token($key) {
+    function get_token($key)
+    {
         $randString = random_string(10);
         $token = data_encode($randString, $key);
-        $token = str_replace("+","BJD", $token);
-        $token = str_replace("-","CAD", $token);
-        $token = str_replace("/","FAD", $token);
+        $token = str_replace("+", "BJD", $token);
+        $token = str_replace("-", "CAD", $token);
+        $token = str_replace("/", "FAD", $token);
         return [$randString, $token];
     }
 }
@@ -138,7 +143,8 @@ if (!function_exists('get_token')) {
  * @version 1.0
  **/
 if (!function_exists('check_token')) {
-    function check_token($name = '', $key = '', $method = 'post') {
+    function check_token($name = '', $key = '', $method = 'post')
+    {
         if (empty($name)) {
             return false;
         }
@@ -176,13 +182,14 @@ if (!function_exists('check_token')) {
  * @version 1.0
  **/
 if (!function_exists('get_user_ip')) {
-    function get_user_ip() {
+    function get_user_ip()
+    {
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             return $_SERVER['HTTP_CLIENT_IP'];
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
             return $_SERVER['HTTP_X_FORWARDED_FOR'];
         } else {
-            return = $_SERVER['REMOTE_ADDR'];
+            return $_SERVER['REMOTE_ADDR'];
         }
     }
 }
@@ -198,15 +205,16 @@ if (!function_exists('get_user_ip')) {
  * @version 1.0
  **/
 if (!function_exists('random_string')) {
-    function random_string($length = 4, $type = '') {
-        $alpha   = 'ABCDEFGHIJKLMNOPQRTUVWXYZ';
+    function random_string($length = 4, $type = '')
+    {
+        $alpha = 'ABCDEFGHIJKLMNOPQRTUVWXYZ';
         $numeric = '123456789';
         $symbols = '!@#$%&=+-*';
         $random_string = '';
 
         switch ($type) {
             case 'mix':
-                $rand_word = $alpha.$numeric.$symbols;
+                $rand_word = $alpha . $numeric . $symbols;
                 break;
 
             case 'alpha':
@@ -222,7 +230,7 @@ if (!function_exists('random_string')) {
                 break;
 
             default:
-                $rand_word = $alpha.$numeric;
+                $rand_word = $alpha . $numeric;
                 break;
         }
 
@@ -247,7 +255,8 @@ if (!function_exists('random_string')) {
  * @version 1.0
  **/
 if (!function_exists('pre_p')) {
-    function pre_p($data) {
+    function pre_p($data)
+    {
         echo '<pre>';
         print_r($data);
         echo '<hr>';
@@ -264,7 +273,8 @@ if (!function_exists('pre_p')) {
  * @version 1.0
  **/
 if (!function_exists('pre_v')) {
-    function pre_v($data) {
+    function pre_v($data)
+    {
         echo '<pre>';
         var_dump($data);
         echo '<hr>';
@@ -281,12 +291,13 @@ if (!function_exists('pre_v')) {
  * @version 1.0
  **/
 if (!function_exists('check_date')) {
-    function check_date($date = ''){
+    function check_date($date = '')
+    {
         if (empty($date)) {
             return false;
         }
 
-        if(!preg_match("/^[0-9]{4}-[1-12]{2}-[1-31]{2}$/", $date)){
+        if (!preg_match("/^[0-9]{4}-[1-12]{2}-[1-31]{2}$/", $date)) {
             return false;
         }
 
@@ -307,17 +318,18 @@ if (!function_exists('check_date')) {
  * @version 1.0
  **/
 if (!function_exists('check_phone')) {
-    function check_phone($phone = ''){
+    function check_phone($phone = '')
+    {
         if (empty($phone)) {
             return false;
         }
 
         if (preg_match("/^09[0-9]{2}-[0-9]{3}-[0-9]{3}$/", $phone)) {
-            return true;    // 09xx-xxx-xxx
-        } else if(preg_match("/^09[0-9]{2}-[0-9]{6}$/", $phone)) {
-            return true;    // 09xx-xxxxxx
-        } else if(preg_match("/^09[0-9]{8}$/", $phone)) {
-            return true;    // 09xxxxxxxx
+            return true; // 09xx-xxx-xxx
+        } else if (preg_match("/^09[0-9]{2}-[0-9]{6}$/", $phone)) {
+            return true; // 09xx-xxxxxx
+        } else if (preg_match("/^09[0-9]{8}$/", $phone)) {
+            return true; // 09xxxxxxxx
         } else {
             return false;
         }
@@ -334,7 +346,8 @@ if (!function_exists('check_phone')) {
  * @version 1.0
  **/
 if (!function_exists('check_identity')) {
-    function check_identity($identity = ''){
+    function check_identity($identity = '')
+    {
         if (empty($identity)) {
             return false;
         }
@@ -394,7 +407,7 @@ if (!function_exists('check_identity')) {
         }
 
         $sum = 0;
-        for ($i=1; $i < 9; $i++) {
+        for ($i = 1; $i < 9; $i++) {
             $sum += (int) $identityArr[$i] * (9 - $i);
         }
 
