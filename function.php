@@ -7,7 +7,7 @@
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('js_locked_right_click')) {
     function js_locked_right_click()
     {
@@ -29,7 +29,7 @@ if (!function_exists('js_locked_right_click')) {
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('js_alert')) {
     function js_alert($message = '', $url = '')
     {
@@ -59,7 +59,7 @@ if (!function_exists('js_alert')) {
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('data_encode')) {
     function data_encode($data, $key)
     {
@@ -88,7 +88,7 @@ if (!function_exists('data_encode')) {
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('data_decode')) {
     function data_decode($data, $key)
     {
@@ -118,7 +118,7 @@ if (!function_exists('data_decode')) {
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('get_token')) {
     function get_token($key)
     {
@@ -141,7 +141,7 @@ if (!function_exists('get_token')) {
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('check_token')) {
     function check_token($name = '', $key = '', $method = 'post')
     {
@@ -180,7 +180,7 @@ if (!function_exists('check_token')) {
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('get_user_ip')) {
     function get_user_ip()
     {
@@ -203,7 +203,7 @@ if (!function_exists('get_user_ip')) {
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('random_string')) {
     function random_string($length = 4, $type = '')
     {
@@ -253,7 +253,7 @@ if (!function_exists('random_string')) {
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('pre_p')) {
     function pre_p($data)
     {
@@ -271,7 +271,7 @@ if (!function_exists('pre_p')) {
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('pre_v')) {
     function pre_v($data)
     {
@@ -289,7 +289,7 @@ if (!function_exists('pre_v')) {
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('check_date')) {
     function check_date($date = '')
     {
@@ -316,7 +316,7 @@ if (!function_exists('check_date')) {
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('check_phone')) {
     function check_phone($phone = '')
     {
@@ -344,7 +344,7 @@ if (!function_exists('check_phone')) {
  *
  * @author Ian
  * @version 1.0
- **/
+ */
 if (!function_exists('check_identity')) {
     function check_identity($identity = '')
     {
